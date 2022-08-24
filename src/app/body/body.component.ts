@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { AppComponent } from '../app.component';
 // import { Product } from './product_model';
 
@@ -37,12 +37,15 @@ export class BodyComponent implements OnInit {
   //       quantity : 3,
   //     }
   //   ]
-    @Input () products : any;
+    @Input() products : any;
+
+    @Output() onRemoveProduct = new EventEmitter();
     constructor(){};
 
   ngOnInit(): void {
   }
   Remove(productid : string) : void{
+    this.onRemoveProduct.emit(productid);
     alert (" You want remove product" + productid);
     const index = this.products.findIndex((product: { id: string; }) => product.id === productid);
 

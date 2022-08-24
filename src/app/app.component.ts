@@ -35,6 +35,27 @@ export class AppComponent {
     }
   ]
 
+  deleteProduct(productid : number){
+    alert (" You want remove product" + productid);
+    //xóa sản phẩm
+    const index = this.products.findIndex(product => product.id === productid);
+
+    if(index !== -1){
+      this.products.splice(index,1)
+    }
+    //tính tổng số lượng sản phẩm và tổng tiền
+
+    let numberItem = 0;
+    let subTotal = 0;
+
+    for (const product of this.products){
+      numberItem += product.quantity;
+      subTotal += product.price * product.quantity;
+    }
+
+    // this.numberItems = numberItem;
+    // this.subTotal = subTotal;
+  }
   NumberItem : number = 3;
   title: any;
 }

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+  subTotal : number = 1000;
+
   constructor() { }
 
   ngOnInit(): void {
